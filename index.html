@@ -1,10 +1,70 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Happy Birthday Honey 🩷</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Honey 🩷</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#ffd6e8,#ffeef6);
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+text-align:center;
+}
+
+.box{
+background:white;
+padding:25px;
+border-radius:20px;
+box-shadow:0 0 20px rgba(255,105,180,.3);
+max-width:350px;
+}
+
+h1{
+color:#ff4f8b;
+}
+
+#countdown{
+font-size:26px;
+font-weight:bold;
+color:#ff1493;
+margin-top:15px;
+}
+</style>
 </head>
-<body style="background:#ffe6f2; text-align:center; font-family:Arial;">
-    <h1>🎂 Happy Birthday Honey 🩷</h1>
-    <h2>Our special countdown website is coming soon... ⏳</h2>
+
+<body>
+
+<div class="box">
+<h1>🎂 Happy Birthday Honey 🩷</h1>
+<p>Counting every second until your special day... ✨</p>
+
+<div id="countdown"></div>
+
+<p style="margin-top:20px;">Made with ❤️ by Ammu</p>
+</div>
+
+<script>
+const birthday = new Date("July 22, 2026 00:00:00").getTime();
+
+setInterval(function(){
+const now = new Date().getTime();
+const distance = birthday - now;
+
+const days = Math.floor(distance/(1000*60*60*24));
+const hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+const minutes = Math.floor((distance%(1000*60*60))/(1000*60));
+const seconds = Math.floor((distance%(1000*60))/1000);
+
+document.getElementById("countdown").innerHTML =
+days+" Days<br>"+hours+" Hours "+minutes+" Minutes "+seconds+" Seconds";
+},1000);
+</script>
+
 </body>
 </html>
